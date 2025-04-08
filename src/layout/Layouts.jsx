@@ -1,5 +1,5 @@
-import React from "react";
 import styles from "./layout.module.css";
+import HomePage from "../templates/HomePage";
 
 const Layouts = () => {
   return (
@@ -13,6 +13,7 @@ const Layouts = () => {
           </p>
         </div>
       </header>
+      <HomePage />
       <footer>
         <p>Developed by Mobin with Love</p>
       </footer>
