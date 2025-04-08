@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { ListAllCoin } from "../services/FechApi";
 
-import styles from "./home.module.css";
+import styles from "../components/listCoin.module.css";
 
 import ListCoin from "../components/ListCoin";
 // import Search from "../components/Search";
@@ -11,29 +11,29 @@ const HomePage = () => {
   const [ListCion, setListCion] = useState([]);
 
   useEffect(() => {
-    const getData =async ()=>{
-      const res = await  ListAllCoin()
-      const json = await res.json()
-      setListCion(json)
-    }
-    getData()
+    const getData = async () => {
+      const res = await ListAllCoin();
+      const json = await res.json();
+      setListCion(json);
+    };
+    getData();
   }, []);
   console.log(ListCion);
 
   return (
     <main>
       {/* <Search /> */}
-      <div className={styles.container}>
-        <div className={styles.firstDiv}>
+      <div className={styles.header}>
+        <div className={styles.nameCoin}>
           <span>Coin</span>
           <span>Name</span>
         </div>
-        <div>
+        <div className={styles.nameCoin}>
           <span>Price</span>
           <span>24h</span>
-          <span>Total Volume</span>
+          <span>Volume</span>
         </div>
-        <div></div>
+        <span>Chart</span>
       </div>
       {ListCion.map((item) => (
         <ListCoin key={item.id} data={item} />

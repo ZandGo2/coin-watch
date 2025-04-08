@@ -1,42 +1,65 @@
-article {
+.header {
+    /* display: grid;
+    grid-template-columns: 2fr 2fr 3fr 2fr; */
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-    margin-top: 20px;
-    padding-bottom: 5PX;
-    border-bottom: 1px solid rgb(85, 77, 77);
+    padding: 12px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ccc;
+    border-bottom: 2px solid rgba(243, 235, 235, 0.616);
+}
+
+article {
+    /* display: grid;
+    grid-template-columns: 2fr 2fr 3fr 2fr; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+}
+
+.nameCoin span{
+    margin-left: 30px;
+}
+
+article:hover {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .DivImage {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    /* width: 35%; */
 }
 
 .DivImage img {
-    width: 35px;
-    height: 35px;
-    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
 }
 
-.DivImage p{
-    margin-right: 25px;
+.DivImage p {
+    margin-right: 15px;
+    font-size: 14px;
+    /* text-transform: uppercase; */
+    color: #fff;
 }
 
 .DivPrice {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 35%;
+    font-size: 14px;
+    color: #fff;
 }
 
-/* .DivPrice p {
-    margin-left: 15px;
-} */
+.DivPrice p {
+    margin-left: 25px;
+}
 
 .chart {
     width: 100px;
