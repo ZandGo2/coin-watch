@@ -1,36 +1,28 @@
 import React, { useEffect, useState } from "react";
-import ListCoin from "../components/ListCoin";
-import { ImOffice } from "react-icons/im";
-// import { ListAllCoin } from "../services/FechApi";
+
+import { ListAllCoin } from "../services/FechApi";
+
 import styles from "./home.module.css";
+
+import ListCoin from "../components/ListCoin";
+// import Search from "../components/Search";
 
 const HomePage = () => {
   const [ListCion, setListCion] = useState([]);
 
   useEffect(() => {
-    const BASE_URL = "https://api.coingecko.com/api/v3/";
-    const KEY = "CG-W5rveW9X7r8MHJa26dBdp5hY";
-
-    const ListAllCoin = () => {
-      const options = {
-        method: "GET",
-        headers: { accept: "application/json", "x-cg-demo-api-key": KEY },
-      };
-
-      fetch(
-        `${BASE_URL}coins/markets?vs_currency=usd&per_page=20&page=1`,
-        options
-      )
-        .then((res) => res.json())
-        .then((res) => setListCion(res))
-        .catch((err) => console.error(err));
-    };
-    ListAllCoin();
+    const getData =async ()=>{
+      const res = await  ListAllCoin()
+      const json = await res.json()
+      setListCion(json)
+    }
+    getData()
   }, []);
   console.log(ListCion);
 
   return (
     <main>
+      {/* <Search /> */}
       <div className={styles.container}>
         <div className={styles.firstDiv}>
           <span>Coin</span>

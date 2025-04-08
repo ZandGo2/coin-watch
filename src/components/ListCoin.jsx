@@ -21,7 +21,7 @@ const ListCoin = ({
         <p>{id}</p>
       </div>
       <div className={styles.DivPrice}>
-        <p>${current_price.toLocaleString()}</p>
+        <p>$ {current_price.toLocaleString()}</p>
         <p
           style={
             price_change_percentage_24h
@@ -29,9 +29,9 @@ const ListCoin = ({
               : { color: "red" }
           }
         >
-          {price_change_percentage_24h.toFixed(2)}%
+          {price_change_percentage_24h.toFixed(2)} %
         </p>
-        <p>${total_volume.toLocaleString()}</p>
+        <p>$ {total_volume.toLocaleString()}</p>
       </div>
       <div>
         <img
