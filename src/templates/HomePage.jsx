@@ -5,6 +5,7 @@ import { ListAllCoin } from "../services/FechApi";
 import styles from "../components/listCoin.module.css";
 
 import ListCoin from "../components/ListCoin";
+import PageNation from "../components/PageNation";
 // import Search from "../components/Search";
 
 const HomePage = () => {
@@ -38,6 +39,7 @@ const HomePage = () => {
       {ListCion.map((item) => (
         <ListCoin key={item.id} data={item} />
       ))}
+      <PageNation/>
     </main>
   );
 };
