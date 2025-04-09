@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import { ListAllCoin } from "../services/FechApi";
-
+import { Commet } from "react-loading-indicators";
 import styles from "../components/listCoin.module.css";
-
 import ListCoin from "../components/ListCoin";
 import PageNation from "../components/PageNation";
 import Search from "../components/Search";
@@ -12,12 +10,15 @@ const HomePage = () => {
   const [ListCion, setListCion] = useState([]);
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("usd");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const getData = async () => {
       const res = await ListAllCoin(page, currency);
       const json = await res.json();
       setListCion(json);
+      setLoading(false);
     };
     getData();
   }, [page, currency]);
@@ -48,9 +49,15 @@ const HomePage = () => {
         </div>
         <span>Chart</span>
       </div>
-      {ListCion.map((item) => (
-        <ListCoin key={item.id} data={item} currency={currency} />
-      ))}
+      {loading && (
+        <div className={styles.loading}>
+          <Commet color="#2a4cd0" size="medium" text="Loading" textColor="" />
+        </div>
+      )}
+      {!loading &&
+        ListCion.map((item) => (
+          <ListCoin key={item.id} data={item} currency={currency} />
+        ))}
       <PageNation page={page} PageHandler={PageHandler} />
     </main>
   );

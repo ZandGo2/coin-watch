@@ -91,3 +91,10 @@
 .listCoin img {
     margin-right: 15px;
 }
+
+.loading {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

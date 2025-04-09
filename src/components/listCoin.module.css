@@ -66,3 +66,10 @@ article:hover {
     width: 100px;
     height: 40px;
 }
+
+.loading {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
