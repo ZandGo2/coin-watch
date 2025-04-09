@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import down from "../assets/chart-down.svg";
 import up from "../assets/chart-up.svg";
 import styles from "./listCoin.module.css";
@@ -12,7 +12,14 @@ const ListCoin = ({
     total_volume,
     id,
   },
+  currency,
 }) => {
+  const sings = {
+    usd: "$",
+    eur: "€",
+    jpy: "¥",
+  };
+
   return (
     <article>
       <div className={styles.DivImage}>
@@ -21,22 +28,26 @@ const ListCoin = ({
         <p>{id}</p>
       </div>
       <div className={styles.DivPrice}>
-        <p>$ {current_price.toLocaleString()}</p>
+        <p>
+          {sings[currency]} {current_price.toLocaleString()}
+        </p>
         <p
           style={
-            price_change_percentage_24h
+            price_change_percentage_24h > 0
               ? { color: "rgb(6, 249, 6)" }
               : { color: "red" }
           }
         >
           {price_change_percentage_24h.toFixed(2)} %
         </p>
-        <p>$ {total_volume.toLocaleString()}</p>
+        <p>
+          {sings[currency]} {total_volume.toLocaleString()}
+        </p>
       </div>
       <div>
         <img
           className={styles.chart}
-          src={price_change_percentage_24h ? up : down}
+          src={price_change_percentage_24h > 0 ? up : down}
           alt="chartUp or chartDown"
         />
       </div>
