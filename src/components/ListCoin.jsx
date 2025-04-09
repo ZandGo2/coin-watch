@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import down from "../assets/chart-down.svg";
 import up from "../assets/chart-up.svg";
 import styles from "./listCoin.module.css";
