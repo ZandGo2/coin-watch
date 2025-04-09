@@ -10,16 +10,22 @@ import PageNation from "../components/PageNation";
 
 const HomePage = () => {
   const [ListCion, setListCion] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const getData = async () => {
-      const res = await ListAllCoin();
+      const res = await ListAllCoin(page);
       const json = await res.json();
       setListCion(json);
     };
     getData();
-  }, []);
-  console.log(ListCion);
+  }, [page]);
+
+  const PageHandler = (num) => {
+    if (page == 1 && num == -1) return;
+    if (page == 10 && num == 1) return;
+    setPage((page) => page + num);
+  };
 
   return (
     <main>
@@ -39,7 +45,7 @@ const HomePage = () => {
       {ListCion.map((item) => (
         <ListCoin key={item.id} data={item} />
       ))}
-      <PageNation/>
+      <PageNation page={page} PageHandler={PageHandler} />
     </main>
   );
 };
