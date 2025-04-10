@@ -1,0 +1,79 @@
+.modalDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.closeDiv span {
+    width: 55px;
+    font-size: 2rem;
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.imageDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 2rem;
+}
+
+.imageDiv img {
+    width: 42px;
+    height: 42px;
+    margin-right: 15px;
+}
+
+.chartDiv {
+    margin-top: 30px;
+}
+
+.btnDiv button {
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.active {
+    color: white;
+    background-color: rgb(131, 0, 253);
+    border: none;
+}
+
+.notActive {
+    color: rgb(132, 0, 255);
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgb(132, 0, 255);
+}
+
+.pDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.pDiv span {
+    color: rgb(132, 0, 255);
+}

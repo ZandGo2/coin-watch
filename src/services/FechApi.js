@@ -16,4 +16,11 @@ const SearchCoin = (coin) => {
   return fetch(`${BASE_URL}search?query=${coin}`, options);
 };
 
-export { ListAllCoin, SearchCoin };
+const ChartCoin = (id, currency) => {
+  return fetch(
+    `${BASE_URL}coins/${id}/market_chart?vs_currency=${currency}&days=7`,
+    options
+  );
+};
+
+export { ListAllCoin, SearchCoin, ChartCoin };
